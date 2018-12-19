@@ -14,3 +14,10 @@ Boot the pi with the SD card you just made
 
 I like to [Setup Wireless](https://iotbytes.wordpress.com/make-raspberry-pi-3-built-in-wifi-module-work-with-picore/) right away but you don't have to bother with this step if it's not important to you.  The WIFI on the pi doesn't seem to have much range once it's inside my eurorack case.
 
+tce-load -iw wget
+
+wget https://raw.githubusercontent.com/cdd3/tt_picore_setup/master/install.sh
+
+chmod +x install.sh
+
+./install.sh
