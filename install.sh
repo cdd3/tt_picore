@@ -43,7 +43,7 @@ tce-load -iw wifi
 
 echo ""
 
-echo "cloning terminal tedium github repo ... -------------------------------------------"
+echo "cloning terminal tedium github repo ... ------------------------------------"
 echo ""
 cd $HOME 
 rm -r -f $HOME/terminal_tedium >/dev/null 2>&1
@@ -88,10 +88,14 @@ echo ""
 echo "boot/config ... ------------------------------------------------------------"
 
 #sudo cp /home/pi/terminal_tedium/software/config.txt /boot/config.txt 
-cd $HOME/terminal_tedium/software/
+#cd $HOME/terminal_tedium/software/
+
 wget https://raw.githubusercontent.com/cdd3/tt_picore_setup/master/config.txt
+
 mount /dev/mmcblk0p1
-sudo cp /mnt/mmcblk0p1/config.txt /mnt/mmcblk0p1/config.txt.old
+
+sudo cp /mnt/mmcblk0p1/config.txt /mnt/mmcblk0p1/config.txt.old #backup original config.txt
+
 sudo cp config.txt /mnt/mmcblk0p1/config.txt
 
 echo ""
@@ -99,7 +103,15 @@ echo ""
 
 echo "alsa ... ------------------------------------------------------------------"
 
-sudo cp $HOME/terminal_tedium/software/asound.conf /etc/asound.conf
+#sudo cp $HOME/terminal_tedium/software/asound.conf /etc/asound.conf
+sudo touch /etc/asound.conf
+sudo echo 'pcm.!default  {
+  type hw card 0
+}
+
+ctl.!default {
+  type hw card 0
+' >> /etc/asound.conf
 
 sudo echo '/etc/asound.conf' >> /opt.filetool.lst
 
