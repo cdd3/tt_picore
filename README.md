@@ -5,7 +5,7 @@ Work in progress to setup a shell script to install & configure a terminal tediu
 
 Get [Pi Core](http://tinycorelinux.net/9.x/armv6/releases/RPi/)
 
-Helpful instruction on writing images [here](https://www.raspberrypi.org/documentation/installation/installing-images/README.md) if you need help
+Helpful instructions on how to write an image to your SD card [here](https://www.raspberrypi.org/documentation/installation/installing-images/README.md) if you need help
 
 Do this part with the pi connected to a monitor & keyboard or via ssh.  Either way unless / until you setup the wireless you will need a wired ethernet connection available for the pi.
 
