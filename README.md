@@ -1,6 +1,6 @@
 # tt_picore
 
-Work in progress to setup a shell script to install & configure a terminal tedium on picore
+Work in progress shell script to configure software for the terminal tedium using picore
 
 
 Get [Pi Core](http://tinycorelinux.net/9.x/armv6/releases/RPi/)
