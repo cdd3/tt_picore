@@ -103,17 +103,9 @@ echo ""
 
 echo "alsa ... ------------------------------------------------------------------"
 
-#sudo cp $HOME/terminal_tedium/software/asound.conf /etc/asound.conf
-sudo touch /usr/local/etc/asound.conf
-sudo echo 'pcm.!default  {
-  type hw card 0
-}
+sudo cp $HOME/terminal_tedium/software/asound.conf /etc/asound.conf
 
-ctl.!default {
-  type hw card 0
-' >> /usr/local/etc/asound.conf
-
-sudo echo '/usr/local/etc/asound.conf' >> /opt.filetool.lst
+sudo echo '/etc/asound.conf' >> /opt.filetool.lst
 
 echo ""
 echo ""
