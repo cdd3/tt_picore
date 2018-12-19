@@ -1,5 +1,8 @@
 # tt_picore
 
+Work in progress to setup a shell script to install & configure a terminal tedium on picore
+
+
 Get [Pi Core](http://tinycorelinux.net/9.x/armv6/releases/RPi/)
 
 Helpful instruction on writing images [here](https://www.raspberrypi.org/documentation/installation/installing-images/README.md) if you need help
