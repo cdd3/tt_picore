@@ -36,10 +36,10 @@ tce-load -iw libunistring
 tce-load -iw alsa
 tce-load -iw alsa-utils
 tce-load -iw puredata
-tce-load -iw wireless_tools
-tce-load -iw wpa_supplicant
+#tce-load -iw wireless_tools
+#tce-load -iw wpa_supplicant
 tce-load -iw firmware-rpi3-wireless
-tce-load -iw wifi
+#tce-load -iw wifi
 
 echo ""
 
@@ -51,11 +51,16 @@ git clone https://github.com/mxmxmx/terminal_tedium
 #cd $HOME/terminal_tedium
 #git pull origin
 
-mkdir $HOME/externals  # PD Externals dir
-sudo cp $HOME/terminal_tedium/software/externals/*.pd_linux $HOME/externals
-sudo cp $HOME/terminal_tedium/software/pdpd $HOME/startpd.sh
-sudo chmod +x $HOME/startpd.sh
+sudo cp $HOME/terminal_tedium/software/externals/*.pd_linux /usr/local/lib/pd/extra
 
+sudo cp $HOME/terminal_tedium/software/pdpd $HOME/startpd.sh
+
+sudo chmod +x $HOME/startpd.sh  
+
+sudo echo '$HOME/startpd.sh' >> /opt/bootlocal.sh  # run startup script for pd on boot
+
+sudo echo '$HOME/startpd.sh' >> /opt/.filetool.lst
+sudo echo '/usr/local/lib/pd/extra' >> /opt/.filetool.lst
 echo ""
 
 
@@ -140,6 +145,6 @@ echo ""
 echo ""
 echo ""
 
-echo " type "sudo reboot" to restart system     ----------------------------------"
+echo " edit startup.sh to point to the patch you want to load at startup.  when done type "sudo reboot" to restart system     ----------------------------------"
 #sudo reboot
 echo ""

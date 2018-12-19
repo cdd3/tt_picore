@@ -84,4 +84,4 @@ dtparam=i2c_arm=on
 dtparam=spi=on
 dtparam=i2s=on
 device_tree_overlay=i2s-mmap
-device_tree_overlay=rpi-prot
+device_tree_overlay=rpi-proto
