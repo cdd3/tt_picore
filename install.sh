@@ -105,7 +105,7 @@ echo "alsa ... -----------------------------------------------------------------
 
 sudo cp $HOME/terminal_tedium/software/asound.conf /etc/asound.conf
 
-sudo echo "/etc/asound.conf" >> /opt.filetool.lst
+sudo echo "/etc/asound.conf" >> /opt/.filetool.lst
 
 echo ""
 echo ""
