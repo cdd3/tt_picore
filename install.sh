@@ -104,16 +104,16 @@ echo ""
 echo "alsa ... ------------------------------------------------------------------"
 
 #sudo cp $HOME/terminal_tedium/software/asound.conf /etc/asound.conf
-sudo touch /etc/asound.conf
+sudo touch /usr/local/etc/asound.conf
 sudo echo 'pcm.!default  {
   type hw card 0
 }
 
 ctl.!default {
   type hw card 0
-' >> /etc/asound.conf
+' >> /usr/local/etc/asound.conf
 
-sudo echo '/etc/asound.conf' >> /opt.filetool.lst
+sudo echo '/usr/local/etc/asound.conf' >> /opt.filetool.lst
 
 echo ""
 echo ""
@@ -138,7 +138,11 @@ echo "done ... cleaning up -----------------------------------------------------
 
 echo "Saving System State  -------------------------------------------------------"
 filetool.sh -b
+echo ""
+echo ""
+echo ""
+echo ""
 
-echo " type "sudo reboot" to restart system     -------------------------------------------------------"
+echo " type "sudo reboot" to restart system     ----------------------------------"
 #sudo reboot
 echo ""
