@@ -67,7 +67,7 @@ cmdline cmdline3.txt
 #----------------------------------------------------
 # Enable peripheral buses
 
-dtparam=i2c=on,spi=on,i2s=on
+#dtparam=i2c=on,spi=on,i2s=on
 
 # Enable serial console
 
@@ -83,5 +83,5 @@ gpu_mem=16
 dtparam=i2c_arm=on
 dtparam=spi=on
 dtparam=i2s=on
-dtoverlay=i2s-mmap
-dtoverlay=rpi-prot
+device_tree_overlay=i2s-mmap
+device_tree_overlay=rpi-prot

@@ -48,8 +48,13 @@ echo ""
 cd $HOME 
 rm -r -f $HOME/terminal_tedium >/dev/null 2>&1
 git clone https://github.com/mxmxmx/terminal_tedium
-cd $HOME/terminal_tedium
+#cd $HOME/terminal_tedium
 #git pull origin
+
+mkdir $HOME/externals  # PD Externals dir
+sudo cp $HOME/terminal_tedium/software/externals/*.pd_linux $HOME/externals
+sudo cp $HOME/terminal_tedium/software/pdpd $HOME/startpd.sh
+sudo chmod +x $HOME/startpd.sh
 
 echo ""
 
