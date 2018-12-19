@@ -109,20 +109,20 @@ echo ""
 echo "done ... cleaning up -------------------------------------------------------"
 
 # remove hardware files and other stuff that's not needed
-cd $HOME/terminal_tedium/software/
-rm -r externals
-rm asound.conf
-rm pdpd
-rm pullup.py
-rm rc.local
-rm rt_start_armv*
-rm config.txt
-rm install.sh
-cd $HOME/terminal_tedium/
-rm -rf hardware
-rm *.md
-cd $HOME
-rm install.sh
+#cd $HOME/terminal_tedium/software/
+#rm -r externals
+#rm asound.conf
+#rm pdpd
+#rm pullup.py
+#rm rc.local
+#rm rt_start_armv*
+#rm config.txt
+#rm install.sh
+#cd $HOME/terminal_tedium/
+#rm -rf hardware
+#rm *.md
+#cd $HOME
+#rm install.sh
 
 echo "Saving System State  -------------------------------------------------------"
 filetool.sh -b
