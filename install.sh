@@ -127,6 +127,6 @@ rm install.sh
 echo "Saving System State  -------------------------------------------------------"
 filetool.sh -b
 
-echo "Rebooting System     -------------------------------------------------------"
-sudo reboot
+echo " type "sudo reboot" to restart system     -------------------------------------------------------"
+#sudo reboot
 echo ""
