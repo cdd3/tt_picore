@@ -36,8 +36,8 @@ tce-load -iw libunistring
 tce-load -iw alsa
 tce-load -iw alsa-utils
 tce-load -iw puredata
-#tce-load -iw wireless_tools
-#tce-load -iw wpa_supplicant
+tce-load -iw wireless_tools
+tce-load -iw wpa_supplicant
 tce-load -iw firmware-rpi3-wireless
 tce-load -iw wifi
 
