@@ -98,7 +98,7 @@ wget https://raw.githubusercontent.com/cdd3/tt_picore_setup/master/config.txt
 mount /dev/mmcblk0p1
 
 sudo cp /mnt/mmcblk0p1/config.txt /mnt/mmcblk0p1/config.txt.old #backup original config.txt
-
+sudo chmod -w /mnt/mmcblk0p1/config.txt.old
 sudo cp config.txt /mnt/mmcblk0p1/config.txt
 
 echo ""
@@ -136,6 +136,7 @@ sudo echo "/etc/asound.conf" >> /opt/.filetool.lst
 sudo echo '/usr/local/lib/pd/extra' >> /opt/.filetool.lst
 
 filetool.sh -b
+
 echo ""
 echo ""
 echo ""
