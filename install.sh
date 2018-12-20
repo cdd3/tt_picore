@@ -69,9 +69,13 @@ echo ""
 
 echo "configuring startup scripts... ------------------------------------------"
 
+sudo chmod +x $HOME/terminal_tedium/software/rt_start
+
+sudo echo "$HOME/terminal_tedium/software/rt_start" >> /opt/bootlocal.sh
+
 sudo cp $HOME/terminal_tedium/software/pdpd $HOME/startpd.sh
 sudo chmod +x $HOME/startpd.sh  
-sudo echo '$HOME/startpd.sh' >> /opt/bootlocal.sh  # run startup script for pd on boot
+sudo echo "$HOME/startpd.sh" >> /opt/bootlocal.sh  # run startup script for pd on boot
 
 
 if [[ "$HARDWARE_VERSION" == 'armv6l' ]]; then
@@ -80,9 +84,6 @@ else
 	sudo cp $HOME/terminal_tedium/software/rt_start_armv7 $HOME/terminal_tedium/software/rt_start
 fi
 
-sudo chmod +x $HOME/terminal_tedium/software/rt_start
-
-sudo echo '$HOME/terminal_tedium/software/rt_start' >> /opt/bootlocal.sh
 
 
 #echo ""
@@ -131,7 +132,7 @@ echo "done ... cleaning up ----------------------------------------------------"
 
 echo "Saving System State  ----------------------------------------------------"
 
-sudo echo '$HOME/startpd.sh' >> /opt/.filetool.lst
+sudo echo "$HOME/startpd.sh" >> /opt/.filetool.lst
 sudo echo "/etc/asound.conf" >> /opt/.filetool.lst
 sudo echo '/usr/local/lib/pd/extra' >> /opt/.filetool.lst
 
@@ -142,7 +143,7 @@ echo ""
 echo ""
 echo ""
 
-echo " edit startup.sh to point to the patch you want to load at startup.  
+echo " edit startpd.sh to point to the patch you want to load at startup.  
 when done type "sudo reboot" to restart system"
 #sudo reboot
 echo ""
