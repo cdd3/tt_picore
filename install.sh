@@ -3,7 +3,7 @@
 echo ""
 echo ""
 echo ""
-echo ">>>>> terminal tedium <<<<<< -----------------------------------------------"
+echo ">>>>> terminal tedium <<<<<< --------------------------------------------"
 echo ""
 echo "(sit back, this will take a 2-3 minutes)"
 echo ""
@@ -21,7 +21,7 @@ else
 	exit -1
 fi
 echo ""
-echo "installing required packages ... -------------------------------------------"
+echo "installing required packages ... ----------------------------------------"
 echo ""
 tce-load -iw git
 tce-load -iw make
@@ -43,7 +43,7 @@ tce-load -iw firmware-rpi3-wireless
 
 echo ""
 
-echo "cloning terminal tedium github repo ... ------------------------------------"
+echo "cloning terminal tedium github repo ... ---------------------------------"
 echo ""
 cd $HOME 
 rm -r -f $HOME/terminal_tedium >/dev/null 2>&1
@@ -53,14 +53,6 @@ git clone https://github.com/mxmxmx/terminal_tedium
 
 sudo cp $HOME/terminal_tedium/software/externals/*.pd_linux /usr/local/lib/pd/extra
 
-sudo cp $HOME/terminal_tedium/software/pdpd $HOME/startpd.sh
-
-sudo chmod +x $HOME/startpd.sh  
-
-sudo echo '$HOME/startpd.sh' >> /opt/bootlocal.sh  # run startup script for pd on boot
-
-sudo echo '$HOME/startpd.sh' >> /opt/.filetool.lst
-sudo echo '/usr/local/lib/pd/extra' >> /opt/.filetool.lst
 echo ""
 
 
@@ -70,32 +62,33 @@ echo ""
 
 #echo ""
 
-echo "done installing software... ------------------------------------------------"
+echo "done installing software... ---------------------------------------------"
 
 echo ""
 echo ""
 
-#echo "rc.local ... ---------------------------------------------------------------"
-########  change target to call rt_start from (append to) /opt/bootlocal.sh
+echo "configuring startup scripts... ------------------------------------------"
 
-#sudo cp $HOME/terminal_tedium/software/rc.local /etc/rc.local
+sudo cp $HOME/terminal_tedium/software/pdpd $HOME/startpd.sh
+sudo chmod +x $HOME/startpd.sh  
+sudo echo '$HOME/startpd.sh' >> /opt/bootlocal.sh  # run startup script for pd on boot
 
-#if [[ "$HARDWARE_VERSION" == 'armv6l' ]]; then
-#	sudo cp $HOME/terminal_tedium/software/rt_start_armv6 $HOME/terminal_tedium/software/rt_start
-#else
-#	sudo cp $HOME/terminal_tedium/software/rt_start_armv7 $HOME/terminal_tedium/software/rt_start
-#fi
 
-#sudo chmod +x /etc/rc.local
+if [[ "$HARDWARE_VERSION" == 'armv6l' ]]; then
+	sudo cp $HOME/terminal_tedium/software/rt_start_armv6 $HOME/terminal_tedium/software/rt_start
+else
+	sudo cp $HOME/terminal_tedium/software/rt_start_armv7 $HOME/terminal_tedium/software/rt_start
+fi
 
-####sudo chmod +x $HOME/terminal_tedium/software/rt_start
+sudo chmod +x $HOME/terminal_tedium/software/rt_start
 
-#sudo echo '/etc/rc.local' >> /opt/.filetool.lst
+sudo echo '$HOME/terminal_tedium/software/rt_start' >> /opt/bootlocal.sh
+
 
 #echo ""
 #echo ""
 
-echo "boot/config ... ------------------------------------------------------------"
+echo "boot/config ... ---------------------------------------------------------"
 
 #sudo cp /home/pi/terminal_tedium/software/config.txt /boot/config.txt 
 #cd $HOME/terminal_tedium/software/
@@ -111,16 +104,14 @@ sudo cp config.txt /mnt/mmcblk0p1/config.txt
 echo ""
 echo ""
 
-echo "alsa ... ------------------------------------------------------------------"
+echo "alsa ... ----------------------------------------------------------------"
 
 sudo cp $HOME/terminal_tedium/software/asound.conf /etc/asound.conf
 
-sudo echo "/etc/asound.conf" >> /opt/.filetool.lst
-
 echo ""
 echo ""
 
-echo "done ... cleaning up -------------------------------------------------------"
+echo "done ... cleaning up ----------------------------------------------------"
 
 # remove hardware files and other stuff that's not needed
 #cd $HOME/terminal_tedium/software/
@@ -138,13 +129,19 @@ echo "done ... cleaning up -----------------------------------------------------
 #cd $HOME
 #rm install.sh
 
-echo "Saving System State  -------------------------------------------------------"
+echo "Saving System State  ----------------------------------------------------"
+
+sudo echo '$HOME/startpd.sh' >> /opt/.filetool.lst
+sudo echo "/etc/asound.conf" >> /opt/.filetool.lst
+sudo echo '/usr/local/lib/pd/extra' >> /opt/.filetool.lst
+
 filetool.sh -b
 echo ""
 echo ""
 echo ""
 echo ""
 
-echo " edit startup.sh to point to the patch you want to load at startup.  when done type "sudo reboot" to restart system     ----------------------------------"
+echo " edit startup.sh to point to the patch you want to load at startup.  
+when done type "sudo reboot" to restart system"
 #sudo reboot
 echo ""
